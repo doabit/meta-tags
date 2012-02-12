@@ -182,14 +182,14 @@ module MetaTags
         result << content_tag(:title, title)
       end
 
-      # description
-      description = normalize_description(meta_tags[:description])
-      result << tag(:meta, :name => :description, :content => description) unless description.blank?
-
       # keywords
       keywords = normalize_keywords(meta_tags[:keywords])
       result << tag(:meta, :name => :keywords, :content => keywords) unless keywords.blank?
 
+     # description
+      description = normalize_description(meta_tags[:description])
+      result << tag(:meta, :name => :description, :content => description) unless description.blank?
+      
       # noindex & nofollow
       noindex_name  = String === meta_tags[:noindex]  ? meta_tags[:noindex]  : 'robots'
       nofollow_name = String === meta_tags[:nofollow] ? meta_tags[:nofollow] : 'robots'
